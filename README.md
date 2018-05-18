@@ -2,7 +2,7 @@
 
 We are always looking for more mentors to help new people ramp up in the programming languages that Exercism supports.
 
-Read more about mentorship at Exercism on [mentors.exercism.io](https://mentors.exercism.io/).
+Read more about mentorship at Exercism on [mentoring.exercism.io](https://mentoring.exercism.io/).
 
 ## How many mentors do we need?
 
