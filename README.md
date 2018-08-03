@@ -1,9 +1,8 @@
 # Exercism Mentors
 
-We are always looking for more mentors to help new people ramp up in the programming languages that Exercism supports.
-
 ## Not a mentor?
-Read more about mentorship at Exercism on [mentoring.exercism.io](https://mentoring.exercism.io/).
+
+We are always looking for more mentors to help new people ramp up in the programming languages that Exercism supports. Read more about mentorship at Exercism on [mentoring.exercism.io](https://mentoring.exercism.io/).
 
 ## Crowd-sourced mentor notes
 The structure within the repository is: `/tracks/ruby/exercises/isogram/README.md`.
