@@ -19,8 +19,6 @@ Please use `###` for headings and try to keep to a structure of:
 
 Here's an example for [Ruby's Isogram](https://github.com/exercism/mentors/blob/master/tracks/ruby/exercises/isogram/README.md).
 
-This is how you create a new file:
-
 <details>
 <summary>This is how you create a new file:</summary>
 
