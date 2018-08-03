@@ -1,4 +1,4 @@
-### Model Solution
+### Possible model solution
 
 ```ruby
 def isogram?(string)
@@ -7,8 +7,8 @@ def isogram?(string)
 end
 ```
 
-### Common Suggestions
+### Common suggestions
 - Suggest using `scan` rather than `gsub` as it removes the need to break the string into chars. Links to https://ruby-doc.org/core-2.2.0/String.html#method-i-scan
 
 ### Talking points
-- Comparing lenghts is **marginally** quicker than comparing but its more code. Which is better?
+- Comparing lengths is **marginally** quicker than comparing but its more code. Which is better?
