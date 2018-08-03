@@ -21,7 +21,12 @@ Here's an example for [Ruby's Isogram](https://github.com/exercism/mentors/blob/
 
 This is how you create a new file:
 
+<details>
+<summary>This is how you create a new file:</summary>
+
 ![Create a new file](http://g.recordit.co/96zCDgEkfG.gif)
+
+</details>
 
 ## General Mentoring Questions
 
