@@ -1,6 +1,6 @@
 ### Reasonable solutions
 
-The use of a custom exception, the choice of variale names, and the user of `cover?` all make this an excellent solution.
+The use of a custom exception, the choice of variable names that relate to the story not the maths (`postion` rather than `number`), and the user of `cover?` all make this an excellent solution.
 ```
 module Grains
   SQUARES = (1..64)
