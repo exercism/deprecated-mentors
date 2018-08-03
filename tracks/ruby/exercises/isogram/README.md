@@ -1,4 +1,4 @@
-### Sane solutions
+### Reasonable solutions
 
 ```ruby
 def isogram?(string)
