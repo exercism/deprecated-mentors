@@ -49,6 +49,27 @@ translate almost directly into the Ruby code:
 I enjoy pointing this out to students who use `#count` in their solutions. It's
 one of the things that's really nice about Ruby!
 
+## Mentoring flow
+
+I've found that mentoring most students on this exercise follows the following
+linear flow. Most students start at either steps 1 or 2. I have an optional
+challenge for students whose first iteration is already on step 5.
+
+1. If student used `#each`, `for`, `while`, or `until`, challenge them to
+   eliminate the manual index management (using one of the iteration strategies
+   outlined above)
+2. If student is iterating without a manual index, but still using a manual
+   counter, challenge them to eliminate it (likely via `#reduce`/`#inject` or
+   `#count`)
+3. If the student is counting via `#reduce`/`#inject`, point them towards
+   `#count`
+4. Quick round of style/idiomatic suggestions such as using `String#chars`
+5. (Optional) if the student is already doing all this, challenge them to solve
+   without indices at all (answer: via `#zip`)
+
+More details on particular pieces of feedback and good conversations to have in
+the _Common Suggestions_ and _Talking Points_ sections below.
+
 ## Common Suggestions
 
 By far the most common feedback I give revolves around eliminating the use of
