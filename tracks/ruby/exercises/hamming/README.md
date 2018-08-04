@@ -107,8 +107,8 @@ I commonly leave a response that looks like this:
 If you look at your main logic, you'll see the following pattern:
 
 1. Initialize an empty variable
-2. Iterate over items, conditionally mutating the variable at each step
-3. After iteration is complete, return the mutated variable
+2. Iterate over items, conditionally reassigning the variable at each step
+3. After iteration is complete, return the current value of the variable
 
 When you see this pattern in Ruby, it's usually a sign that you should instead
 be using one of the more powerful methods from `Enumerable`. Can you think of a
