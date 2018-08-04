@@ -18,7 +18,7 @@ end
 
 ### Talking points
 - Ruby's implicit returns
-- Style preferences
+- Style preferences. With every thing else in order, this is a good opportunity to talk about style conventions like indentation, parameter parenthesis in method declarations and removing redundant comments.   
 
 ### Mentoring notes
 - A friendly standard answer about how this can be done in one line, and a 'hint: use a different default value' will be 
