@@ -14,7 +14,7 @@ end
 ### Common suggestions
 - Suggest using a default value instead of any form of conditionals. 
 - People often set the default of `name` to be `nil`. Ask if there is something they could do with the default value to avoid the conditional and make their code simpler.
-- Suggest to remove 'return'
+- Suggest to remove `return`
 - Use `def` with parentheses, because of the parameter.
 
 ### Talking points
