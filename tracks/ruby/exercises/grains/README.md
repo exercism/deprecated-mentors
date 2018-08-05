@@ -31,8 +31,8 @@ end
 ```
 
 ### Common suggestions 
-- With a compound conditional `(< 1 || > 64)` -> Extract the compound conditional in a separate method
-- With a range conditional -> `cover?` has better performance than something like `between` (because `cover?` doesn't iterate over the range but calculates).
+- With a compound conditional `(< 1 || > 64)` -> Extract the compound conditional in a separate method and/or use `between?`.
+- With a range, like in the example -> `cover?` is a great and fast way to check if an object is inside the range.
 
 - With a non-maths solution, on `total` -> `inject` or `reduce` are sub-optimal, suggest `sum` (Ruby 2.4+)
 - If the solution uses iteration on the `square` method instead of using exponentiation, consider challenging the student to write out the sequence of grains and ask them if they see a pattern that may point to a simpler solution (1, 2, 4, 8, ...).
