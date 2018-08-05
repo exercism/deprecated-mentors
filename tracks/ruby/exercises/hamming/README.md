@@ -107,7 +107,7 @@ I commonly leave a response that looks like this:
 If you look at your main logic, you'll see the following pattern:
 
 1. Initialize an empty variable
-2. Iterate over items, conditionally reassigning the variable at each step
+2. Iterate over items in a collection, conditionally modifying the variable in each iteration
 3. After iteration is complete, return the current value of the variable
 
 When you see this pattern in Ruby, it's usually a sign that you should instead
