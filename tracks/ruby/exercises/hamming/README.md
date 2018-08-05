@@ -72,14 +72,19 @@ the _Common Suggestions_ and _Talking Points_ sections below.
 
 ## Common Suggestions
 
-By far the most common feedback I give revolves around eliminating the use of
+- By far the most common feedback I give revolves around eliminating the use of
 manually managed intermediate counter and index variables. In Ruby you should
 almost never need to manually increment an index or counter. We have other
 constructs available that will automatically manage these for us.
 
-I try to focus on one big thing in the first round of feedback and this is
+- I try to focus on one big thing in the first round of feedback and this is
 almost always it. I leave style and minor improvement suggestions for a quick
 round final round at the end.
+
+- No matter how important Naming Things is, Hamming is not the best place to discuss the naming of the parameters,
+because there is no solution that seems to satisfy everyone, while a lot of people have strong opinions
+on it. The following few core exercises offer plenty opportunity to discuss is.  
+
 
 ### Too weak Enumerable
 
