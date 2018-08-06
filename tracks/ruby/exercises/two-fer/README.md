@@ -20,7 +20,7 @@ end
 ### Talking points
 - Implicit returns
 - Default values
-- String interpolation
+- String interpolation (http://ruby-for-beginners.rubymonstas.org/bonus/string_interpolation.html)
 - Style preferences. With everything else in order, this is a good opportunity to talk about style conventions like indentation, parameter parenthesis in method declarations and removing redundant comments.
 https://github.com/rubocop-hq/ruby-style-guide
 Given the place in the curriculum, it may be worth to not going to deep, and to not addressing points that are controversial or personal preference. 
