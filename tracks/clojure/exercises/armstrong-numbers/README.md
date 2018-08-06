@@ -34,3 +34,6 @@ This is the first core exercise.
 ### Talking points
 
 ### Mentoring notes
+- If the user comes to Clojure without experience in functional programming,
+  this is the first exercise, that requires him to think non-imperative, and
+  probably his first contact with sequences.
