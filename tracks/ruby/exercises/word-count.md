@@ -30,7 +30,7 @@ end
 
 
 #### Common suggestions 
-- [Minimal Viable Solution] For the counting, solutions with `each_with_object`, `reduce'/`inject` and `group_by` are acceptable approaches. 
+- [Minimal Viable Solution] For the counting, solutions with `each_with_object`, `reduce`/`inject` and `group_by` are acceptable approaches. 
 Iterations with `each`, `for or others with separate counters are not.
 - The RegEx gets complicated in the last test, where it should catch both `"large"` and `'large'` ` => { large: 2 }`. 
 As long as they got something that catches a word with or without `'`, you can give away the last step for free.  
@@ -45,7 +45,11 @@ Suggest to solve it within the RegEx.
 - Public and Private Interface
 - The goal of separating the preparing of the input from the processing itself.
 - Do's and don'ts in initializers.  
- 
+- Making RegEx's readable.
 
+#### Passing RegEx's
+- `/\b[\w']+\b/`
+- `/\b[[:alnum]']+\b/`
+- `/\b[[:word:]']+\b/`
 
 
