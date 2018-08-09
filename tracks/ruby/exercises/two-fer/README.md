@@ -1,5 +1,5 @@
 ### Intro
-This is the first core exercise. 
+This is the first core exercise. Great opportunity to prepare for the track with attention to style conventions. 
 
 ### Reasonable solutions
 
@@ -13,15 +13,17 @@ end
 
 ### Common suggestions
 - Suggest using a default value instead of any form of conditionals. 
-- People often set the default of `name` to be `nil`. Ask if there is something they could do with the default value to avoid the conditional and make their code simpler.
+- People often set the default of `name` to `nil`. Ask if there is something they could do with the default value to avoid the conditional and make their code simpler.
 - Suggest to remove `return`
 - Use `def` with parentheses, because of the parameter.
+- Check if the BookKeeper module is present and the comment removed.
+- Some people need help with running the tests. 
 
 ### Talking points
 - Implicit returns
 - Default values
 - String interpolation (http://ruby-for-beginners.rubymonstas.org/bonus/string_interpolation.html)
-- Style preferences. With everything else in order, this is a good opportunity to talk about style conventions like indentation, parameter parenthesis in method declarations and removing redundant comments.
+- Style preferences. This exercise is a good opportunity to talk about style conventions like indentation, parameter parenthesis in method declarations and removing redundant comments. 
 https://github.com/rubocop-hq/ruby-style-guide
 Given the place in the curriculum, it may be worth to not going to deep, and to not addressing points that are controversial or personal preference. 
 
