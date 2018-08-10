@@ -95,7 +95,7 @@ end
 
 #### `String.split` result includes empty strings
 
-If the student handled a case for emptry strings included in the output of `String.trim`,
+If the student handled a case for empty strings included in the output of `String.trim`,
 it can be suggested to use the `trim: true` option.
 ```elixir
 iex(3)> String.split("a  b  c  d", " ")
@@ -106,13 +106,13 @@ iex(4)> String.split("a  b  c  d", " ", trim: true)
 
 #### `regex = ~r/bla/`
 
-If the student named their variable with a regular expression `regex` or somethin similar,
+If the student named their variable with a regular expression `regex` or something similar,
 it can be suggested that this is not a descriptive variable name.
-A variable name for a regular expression should  make it possibe to skim the code
+A variable name for a regular expression should  make it possible to skim the code
 and get the meaning of the regular expression without having to analyze it.
 
 ```elixir
-reduntant_punctuation = ~r/[^\w\s-_']/u
+redundant_punctuation = ~r/[^\w\s-_']/u
 apostrophes_around_words = ~r/(?<=\W)'|'(?=\W)/u
 word_delimiters = ~r/[^\p{L}0-9-]+/u
 ```
