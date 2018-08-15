@@ -1,7 +1,7 @@
-#### Intro
+### Intro
 Side exercise. Great to step up from basic loops and `Enumerable#each` to more powerful Enumberable methods. 
 
-#### Reasonable solutions
+### Reasonable solutions
 ```
 class WordCount
   WORD_REGEX = /\b[\w|']+\b/
@@ -26,7 +26,7 @@ end
 ```
 
 
-#### Common suggestions 
+### Common suggestions 
 - [Minimal Viable Solution] For the counting, solutions with `each_with_object`, `reduce`/`inject` and `group_by` are acceptable approaches. 
 Iterations with `each`, `for` or others with separate counters are not.
 - The RegEx gets complicated in the last test, where it should catch both `"large"` and `'large'` ` => { large: 2 }`. 
@@ -36,7 +36,7 @@ http://www.rubular.com/
 - One strategy people use to catch quoted words is an intermediate step like 'strip_quotes'. 
 Suggest to solve it within the RegEx. 
 
-#### Talking points
+### Talking points
 - Why the above mentioned solutions are preferred over iterations with separate counters.
 - Storing the RegEx in a Constant.
 - Public and Private Interface.
@@ -44,7 +44,7 @@ Suggest to solve it within the RegEx.
 - Do's and don'ts in initializers.  
 - Making RegEx's readable.
 
-#### Passing RegEx's
+### Passing RegEx's
 - `/\b[\w']+\b/`
 - `/\b[[:alnum]']+\b/`
 - `/\b[[:word:]']+\b/`
