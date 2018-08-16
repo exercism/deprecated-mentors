@@ -35,12 +35,16 @@ end
 
 ### Common Suggestions
 
-- Use a single value for storing time, rather than storing hours and minutes seperately
+- Clocks are minute-trackers - hours only matter when formatting for human reading. Use a single value for storing time, rather than storing hours and minutes seperately.
+- Value objects - instances that are ideally immutable and do equality through their value, not their identity
+- Using `protected` to allow you to access another instance’s `time` or `minutes` in `==` without making the attributes public
+- Using constants instead of magic numbers
 
 ### Talking Points
 
 - `+()`, `-()`, `==()`
 - `alias`
 - Compound constructors
+- Number formatting (`"%02d:%02d"` etc)
 - Constants (too many, too few, etc)
 - `divmod()`
