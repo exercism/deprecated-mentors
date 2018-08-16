@@ -37,7 +37,7 @@ end
 
 - Clocks are minute-trackers - hours only matter when formatting for human reading. Use a single value for storing time, rather than storing hours and minutes seperately. (note: to be more precise, clocks track seconds - think `epoch` - but for this exercise we don't care about seconds)
 - Using `protected` to allow you to access another instance’s `time` or `minutes` in `==` without making the attributes public.
-- Using constants instead of magic numbers-
+- Using constants instead of [magic numbers](https://refactoring.guru/replace-magic-number-with-symbolic-constant).
 - (Advanced) Make Clock a [value object](https://www.sitepoint.com/value-objects-explained-with-ruby/) - they are instances that are ideally immutable (use `freeze` in the initializer) and do equality through their value, not their identity. Also consider supporting [hash equality](https://www.belighted.com/blog/overriding-equals-equals).
 
 ### Talking Points
