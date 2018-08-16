@@ -5,11 +5,10 @@
 ```ruby
 class Clock
   MINS_PER_HOUR = 60
-  HOURS_PER_DAY = 24
-  DAILY_MINS = HOURS_PER_DAY * MINS_PER_HOUR
+  MINS_PER_DAY = 1440
 
   def initialize(hour: 0, minute: 0)
-    @time = (hour * MINS_PER_HOUR + minute) % DAILY_MINS
+    @time = (hour * MINS_PER_HOUR + minute) % MINS_PER_DAY
   end
 
   def to_s
