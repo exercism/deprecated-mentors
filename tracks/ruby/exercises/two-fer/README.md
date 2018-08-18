@@ -18,6 +18,7 @@ end
 - Use `def` with parentheses, because of the parameter.
 - Check if the BookKeeper module is present and the comment removed.
 - Some people need help with running the tests. 
+- Check indentation (convention is 2-space indentation).
 
 ### Talking points
 - Implicit returns
