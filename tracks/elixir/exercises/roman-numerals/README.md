@@ -18,9 +18,11 @@ defmodule Roman do
     {1, "I"}
   ]
 
-  def numerals(0, acc), do: acc
+  def numerals(number), do: do_numerals(number, "")
 
-  def numerals(number, acc) do
+  defp do_numerals(0, acc), do: acc
+
+  defp do_numerals(number, acc) do
     {arabic, roman} = @dict |> Enum.find(fn {n, _} -> n <= number end)
     numerals(number - arabic, acc <> roman)
   end
@@ -29,7 +31,8 @@ end
 
 Given that this solution introduces a lot of concepts, it would also be
 acceptable to use a `cond` statement like the solution below, matching for each
-possibility. For beginners who have the tendency to do pattern matching, this could be the first step to reach the solution above.
+possibility. For beginners who have the tendency to do pattern matching, this
+could be the first step to reach the solution above.
 
 ```elixir
 defmodule Roman do
@@ -71,6 +74,8 @@ end
 ```
 
 This can easily be condensed into a single definition with default arguments.
+However, it should be noted that with this approach, `numerals/2` cannot be
+private and the API with the second argument is exposed.
 
 ```elixir
 def numerals(number, acc \\ "") do
