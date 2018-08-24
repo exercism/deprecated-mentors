@@ -15,8 +15,6 @@ class Clock
   end
 
   def to_s
-    hours = total_minutes / MINUTES_PER_HOUR
-    minutes = total_minutes % MINUTES_PER_HOUR
     "%02d:%02d" % [hours, minutes]
   end
 
@@ -41,6 +39,16 @@ class Clock
   protected
 
   attr_reader :total_minutes
+
+  private
+
+  def hours
+    total_minutes / MINUTES_PER_HOUR
+  end
+
+  def minutes
+    total_minutes % MINUTES_PER_HOUR
+  end
 end
 ```
 
@@ -70,7 +78,7 @@ groupings directly. Help student realize that "time elapsed since midnight" is a
 single quantity, even though humans represent it as two quantities for ease of
 reading.
 
-### Rerturn new instances from `+` and `-`
+### Return new instances from `+` and `-`
 
 In general, value objects should never change and instead return new instances.
 This prevents tricky bugs in client code. More on this in the talking points
