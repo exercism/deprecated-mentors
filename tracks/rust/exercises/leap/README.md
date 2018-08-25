@@ -59,5 +59,5 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 4 measured; 0 filtered out
 ```
 
 This clearly shows that:
-- binding sub expressions is zero-cost
+- binding sub expressions is zero-cost as long as they have no side effects.
 - order of evaluation *does* matter
