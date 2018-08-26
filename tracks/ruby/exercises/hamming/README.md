@@ -24,7 +24,7 @@ preference they are:
 **Counting** on the other hand really only has one good solution: using
 `Enumerable#count` with a block.
 
-My ideal solution looks like:
+A lot of mentors favour this solution:
 
 ```ruby
 class Hamming
@@ -36,7 +36,19 @@ class Hamming
 end
 ```
 
-I particularly like how the English instructions:
+Or, without converting to arrays, and thus exploiting String power: 
+``` 
+
+module Hamming
+  def self.compute(s1, s2)
+    raise ArgumentError if s1.length != s2.length
+
+    (0..s1.length).count { |i| s1[i] != s2[i] }
+  end
+end
+```
+
+Note how the English instructions:
 
 > ... counting how many of the nucleotides are different from their equivalent in the other string.
 
@@ -45,8 +57,7 @@ translate almost directly into the Ruby code:
 ```ruby
 .count { |char1, char2| char1 != char2 }
 ```
-
-I enjoy pointing this out to students who use `#count` in their solutions. It's
+It's worthwhile pointing this out to students who use `#count` in their solutions. It's
 one of the things that's really nice about Ruby!
 
 ## Mentoring flow
