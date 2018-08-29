@@ -1,30 +1,37 @@
 # Hamming
 
-Hamming is an exercise focused on iteration. It's is composed of two
-sub-problems: how to **iterate** through two collections, and how to **count**
+Hamming is composed of two sub-problems: how to **iterate** through two collections, and how to **count**
 based on a condition.
 
-The `Enumerable` module contains fantastic tools to solve these problems but
-many students are unfamiliar with it. This is a great exercise to introduce them
+The `Enumerable` module contains fantastic tools to solve these problems. This is a great exercise to introduce students
 to some of its features.
 
 ## Reasonable Solutions
 
-There are three strategies for the **iteration**. In my personal order of
-preference they are:
-
-1. Iterating through both strings simultaneously via `Enumerable#zip` (avoids
-   the need for indices)
-2. Iterating through indices directly using a `Range`, `Integer#upto`, or
-   `Integer#times`.
-3. A hybrid approach where you iterate through one of the strings while also
-   tracking the index to find the equivalent character in the other string. Uses
-`Enumerable#each_with_index`.
+There are three strategies for the **iteration**. In descending order of popularity with mentors:
+ 
+Hybrid approach 
+1. Iterating through both strings simultaneously via `Enumerable#zip`;
+2. Iterating explicit indices using a `Range`, `Integer#upto`, or `Integer#times`;
+3. A hybrid approach with `Enumerable#each_with_index`, iterating over one of the strings while also
+   tracking the index to find the equivalent character in the other string. Uses `Enumerable#each_with_index`.
 
 **Counting** on the other hand really only has one good solution: using
 `Enumerable#count` with a block.
+Note how the English instructions:
 
-My ideal solution looks like:
+> ... counting how many of the nucleotides are different from their equivalent in the other string.
+
+translate almost directly into the Ruby code:
+
+```ruby
+.count { |char1, char2| char1 != char2 }
+```
+It's worthwhile pointing this out to students who use `#count` in their solutions. It's
+one of the things that's really nice about Ruby!
+
+## Examples
+Strategy 1: `zip`
 
 ```ruby
 class Hamming
@@ -35,25 +42,29 @@ class Hamming
   end
 end
 ```
+Pros: avoids indices entirely  
+Cons: needs to convert the string to an array
 
-I particularly like how the English instructions:
+Strategy 2: String Power
+ 
+```ruby 
+    (0..strand1.length).count { |i| strand1[i] != strand2[i] }
+```
+Pros: uses string directly; no array conversion needed;   
+Cons: requires indices.
 
-> ... counting how many of the nucleotides are different from their equivalent in the other string.
-
-translate almost directly into the Ruby code:
+Strategy 3: Each with index
 
 ```ruby
-.count { |char1, char2| char1 != char2 }
+    strand1.chars.each_with_index.count {|letter, index| letter != strand2[index] }
 ```
+Pros: more intuitive? (students seem to pick this often);  
+Cons: requires both indices and converting to arrays, so it's kind of the worst of both worlds from 1 and 2 😛 . 
 
-I enjoy pointing this out to students who use `#count` in their solutions. It's
-one of the things that's really nice about Ruby!
 
 ## Mentoring flow
 
-I've found that mentoring most students on this exercise follows the following
-linear flow. Most students start at either steps 1 or 2. I have an optional
-challenge for students whose first iteration is already on step 5.
+Most students start at either steps 1 or 2. 
 
 1. If student used `#each`, `for`, `while`, or `until`, challenge them to
    eliminate the manual index management (using one of the iteration strategies
@@ -65,30 +76,30 @@ challenge for students whose first iteration is already on step 5.
    `#count`
 4. Quick round of style/idiomatic suggestions such as using `String#chars`
 5. (Optional) if the student is already doing all this, challenge them to solve
-   without indices at all (answer: via `#zip`)
+   without indices at all (with the optimal solution: `#zip`)
 
 More details on particular pieces of feedback and good conversations to have in
 the _Common Suggestions_ and _Talking Points_ sections below.
 
 ## Common Suggestions
 
-- By far the most common feedback I give revolves around eliminating the use of
+- By far the most common feedback revolves around eliminating the use of
 manually managed intermediate counter and index variables. In Ruby you should
 almost never need to manually increment an index or counter. We have other
 constructs available that will automatically manage these for us.
 
 - I try to focus on one big thing in the first round of feedback and this is
 almost always it. I leave style and minor improvement suggestions for a quick
-round final round at the end.
+final round at the end.
 
 - No matter how important Naming Things is, Hamming is not the best place to discuss the naming of the parameters,
 because there is no solution that seems to satisfy everyone, while a lot of people have strong opinions
-on it. The following few core exercises offer plenty opportunity to discuss is.  
+on it. The following few core exercises offer plenty opportunity to discuss naming.  
 
 
 ### Too weak Enumerable
 
-Many students will use `Enumerable#each` to do the looping but have manual
+Many students will use `Array#each` to do the looping but have manual
 counter and index variables
 
 ```ruby
