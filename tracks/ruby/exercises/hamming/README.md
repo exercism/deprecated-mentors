@@ -11,10 +11,10 @@ to some of its features.
 There are three strategies for the **iteration**. In descending order of popularity with mentors:
  
 Hybrid approach 
-1. Iterating through both strings simultaneously via `Enumerable#zip`: 👍 avoids indices entirely, 👎 needs to convert the string to an array
-2. Iterating explicit indices using a `Range`, `Integer#upto`, or `Integer#times`: 👍 uses string directly, no array conversion needed, 👎 requires indices
+1. Iterating through both strings simultaneously via `Enumerable#zip`;
+2. Iterating explicit indices using a `Range`, `Integer#upto`, or `Integer#times`;
 3. A hybrid approach with `Enumerable#each_with_index`, iterating over one of the strings while also
-   tracking the index to find the equivalent character in the other string. Uses `Enumerable#each_with_index`: 👍 more intuitive? students seem to pick this often, 👎 requires both indices and converting to arrays so it's kind of the worst of both worlds from 1 and 2 😛
+   tracking the index to find the equivalent character in the other string. Uses `Enumerable#each_with_index`.
 
 **Counting** on the other hand really only has one good solution: using
 `Enumerable#count` with a block.
@@ -30,7 +30,7 @@ translate almost directly into the Ruby code:
 It's worthwhile pointing this out to students who use `#count` in their solutions. It's
 one of the things that's really nice about Ruby!
 
-## Examples:
+## Examples
 Strategy 1: `zip`
 
 ```ruby
@@ -42,18 +42,25 @@ class Hamming
   end
 end
 ```
+Pros: avoids indices entirely  
+Cons: needs to convert the string to an array
 
 Strategy 2: String Power
  
 ```ruby 
     (0..strand1.length).count { |i| strand1[i] != strand2[i] }
 ```
+Pros: uses string directly; no array conversion needed;   
+Cons: requires indices.
 
 Strategy 3: Each with index
 
 ```ruby
-    some_strand.chars.each_with_index.count {|letter, index| letter != other_strand[index] }
+    strand1.chars.each_with_index.count {|letter, index| letter != strand2[index] }
 ```
+Pros: more intuitive? (students seem to pick this often);  
+Cons: requires both indices and converting to arrays, so it's kind of the worst of both worlds from 1 and 2 😛 . 
+
 
 ## Mentoring flow
 
@@ -76,18 +83,18 @@ the _Common Suggestions_ and _Talking Points_ sections below.
 
 ## Common Suggestions
 
-- By far the most common feedback I give revolves around eliminating the use of
+- By far the most common feedback revolves around eliminating the use of
 manually managed intermediate counter and index variables. In Ruby you should
 almost never need to manually increment an index or counter. We have other
 constructs available that will automatically manage these for us.
 
 - I try to focus on one big thing in the first round of feedback and this is
 almost always it. I leave style and minor improvement suggestions for a quick
-round final round at the end.
+final round at the end.
 
 - No matter how important Naming Things is, Hamming is not the best place to discuss the naming of the parameters,
 because there is no solution that seems to satisfy everyone, while a lot of people have strong opinions
-on it. The following few core exercises offer plenty opportunity to discuss is.  
+on it. The following few core exercises offer plenty opportunity to discuss naming.  
 
 
 ### Too weak Enumerable
