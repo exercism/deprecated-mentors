@@ -1,53 +1,23 @@
 # Hamming
 
-Hamming is an exercise focused on iteration. It's is composed of two
-sub-problems: how to **iterate** through two collections, and how to **count**
+Hamming is composed of two sub-problems: how to **iterate** through two collections, and how to **count**
 based on a condition.
 
-The `Enumerable` module contains fantastic tools to solve these problems but
-many students are unfamiliar with it. This is a great exercise to introduce them
+The `Enumerable` module contains fantastic tools to solve these problems. This is a great exercise to introduce students
 to some of its features.
 
 ## Reasonable Solutions
 
-There are three strategies for the **iteration**. In my personal order of
-preference they are:
-
-1. Iterating through both strings simultaneously via `Enumerable#zip` (avoids
-   the need for indices)
-2. Iterating through indices directly using a `Range`, `Integer#upto`, or
-   `Integer#times`.
-3. A hybrid approach where you iterate through one of the strings while also
-   tracking the index to find the equivalent character in the other string. Uses
-`Enumerable#each_with_index`.
+There are three strategies for the **iteration**. In descending order of popularity with mentors:
+ 
+Hybrid approach 
+1. Iterating through both strings simultaneously via `Enumerable#zip`: 👍 avoids indices entirely, 👎 needs to convert the string to an array
+2. Iterating explicit indices using a `Range`, `Integer#upto`, or `Integer#times`: 👍 uses string directly, no array conversion needed, 👎 requires indices
+3. A hybrid approach with `Enumerable#each_with_index`, iterating over one of the strings while also
+   tracking the index to find the equivalent character in the other string. Uses `Enumerable#each_with_index`: 👍 more intuitive? students seem to pick this often, 👎 requires both indices and converting to arrays so it's kind of the worst of both worlds from 1 and 2 😛
 
 **Counting** on the other hand really only has one good solution: using
 `Enumerable#count` with a block.
-
-A lot of mentors favour this solution:
-
-```ruby
-class Hamming
-  def self.compute(strand1, strand2)
-    raise ArgumentError if strand1.length != strand2.length
-
-    strand1.chars.zip(strand2.chars).count { |char1, char2| char1 != char2 }
-  end
-end
-```
-
-Or, without converting to arrays, and thus exploiting String power: 
-``` 
-
-module Hamming
-  def self.compute(s1, s2)
-    raise ArgumentError if s1.length != s2.length
-
-    (0..s1.length).count { |i| s1[i] != s2[i] }
-  end
-end
-```
-
 Note how the English instructions:
 
 > ... counting how many of the nucleotides are different from their equivalent in the other string.
@@ -60,11 +30,34 @@ translate almost directly into the Ruby code:
 It's worthwhile pointing this out to students who use `#count` in their solutions. It's
 one of the things that's really nice about Ruby!
 
+## Examples:
+Strategy 1: `zip`
+
+```ruby
+class Hamming
+  def self.compute(strand1, strand2)
+    raise ArgumentError if strand1.length != strand2.length
+
+    strand1.chars.zip(strand2.chars).count { |char1, char2| char1 != char2 }
+  end
+end
+```
+
+Strategy 2: String Power
+ 
+```ruby 
+    (0..strand1.length).count { |i| strand1[i] != strand2[i] }
+```
+
+Strategy 3: Each with index
+
+```ruby
+    some_strand.chars.each_with_index.count {|letter, index| letter != other_strand[index] }
+```
+
 ## Mentoring flow
 
-I've found that mentoring most students on this exercise follows the following
-linear flow. Most students start at either steps 1 or 2. I have an optional
-challenge for students whose first iteration is already on step 5.
+Most students start at either steps 1 or 2. 
 
 1. If student used `#each`, `for`, `while`, or `until`, challenge them to
    eliminate the manual index management (using one of the iteration strategies
@@ -76,7 +69,7 @@ challenge for students whose first iteration is already on step 5.
    `#count`
 4. Quick round of style/idiomatic suggestions such as using `String#chars`
 5. (Optional) if the student is already doing all this, challenge them to solve
-   without indices at all (answer: via `#zip`)
+   without indices at all (with the optimal solution: `#zip`)
 
 More details on particular pieces of feedback and good conversations to have in
 the _Common Suggestions_ and _Talking Points_ sections below.
@@ -99,7 +92,7 @@ on it. The following few core exercises offer plenty opportunity to discuss is.
 
 ### Too weak Enumerable
 
-Many students will use `Enumerable#each` to do the looping but have manual
+Many students will use `Array#each` to do the looping but have manual
 counter and index variables
 
 ```ruby
