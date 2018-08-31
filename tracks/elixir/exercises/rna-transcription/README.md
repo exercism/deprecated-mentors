@@ -18,6 +18,25 @@ end
 ```
 
 ```elixir
+# Enum.map from map of transformations
+defmodule RNATranscription do
+  @transformations %{
+    ?G => ?C,
+    ?C => ?G,
+    ?T => ?A,
+    ?A => ?U
+  }
+
+  def to_rna(dna) do
+    Enum.map(dna, fn dna -> @transformations[dna] end)
+    # or:
+    # dna |> Enum.map(&Map.get(@transformations, &1))
+  end
+end
+```
+
+
+```elixir
 # recursive function approach
 defmodule RNATranscription do
   @spec to_rna([char]) :: [char]
