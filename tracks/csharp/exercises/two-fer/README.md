@@ -23,7 +23,7 @@ An alternative solution would be to use the [null-coalescing operator](https://d
 ```csharp
 public static class TwoFer
 {
-    public static string Name(string name = "you")
+    public static string Name(string name = null)
     {
         return $"One for {input ?? "you"}, one for me.";
     }
