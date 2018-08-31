@@ -7,7 +7,7 @@ _Acronym_ is one of the first side exercises, disclosed by _TwoFer_
 ```ruby
 module Acronym
   def self.abbreviate(fullname)
-    fullname.scan(/\b[a-zA-Z]).join.upcase
+    fullname.scan(/\b[a-zA-Z]/).join.upcase
   end
 end
 ```
@@ -31,10 +31,10 @@ give the regex away for free, especially if they already found `scan(/\w+/)`
 * `scan` is faster than `split`
 * It can be hard to catch all the possible delimiters. 
 * `upcasing` the whole string is 10% slower than `upcasing` the acronym only. 
- 
+* Store the regex in a constant or a variable, mostly so it can be named. 
 
 ## Passing regex's
-`/\b[a-zA-Z]/` # only returns first letters, not _ 
+`/\b[a-zA-Z]/` # only returns first letters, not `_` 
 
 `\b[[:alpha:]]/` # same
 
