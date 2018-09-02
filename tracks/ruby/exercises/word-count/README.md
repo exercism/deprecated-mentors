@@ -25,7 +25,7 @@ end
 
 ```
 
-An exceptional nice solution uses `group_by(&:itself)`, and the `transform_values` method introduced in Ruby 2.4
+An exceptionally nice solution uses `group_by(&:itself)`, and the `transform_values` method introduced in Ruby 2.4
 
 ```ruby
 def word_count
