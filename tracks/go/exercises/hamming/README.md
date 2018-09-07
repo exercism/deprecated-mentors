@@ -50,14 +50,13 @@ The most common feedback revolves around:
 * Do they have comments that don't follow the linting guidelines? Suggest `golint`.
 * Do they have comments that pass `golint` but don't end with a period? Potentially point them to [CodeReviewComments](https://github.com/golang/go/wiki/CodeReviewComments#comment-sentences) wiki, which suggests that doc comments should be full sentences, ending with a period.
 
-**Code structure: is the code easily readable?
+**Code structure: is the code easily readable?**
 * Did they wrap the `for` loop in the `if`? This is completely valid but less readable: the error is returned at the bottom far away from the if statement.
 * Did they use `if .. else` with returns in each of them? Hint at `golint` which suggests to remove the else and outdent the second block.
 
-**Speed: Did they add unnecessary code which slows down the execution time?
+**Speed: Did they add unnecessary code which slows down the execution time?**
 * Did they add a `if a == b` statement? This is not needed and will slow down considerably.
 
-**Talking points
+**Talking points**
 
-*
 
