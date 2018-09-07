@@ -58,5 +58,5 @@ The most common feedback revolves around:
 * Did they add a `if a == b` statement? This is not needed and will slow down considerably.
 
 **Talking points**
-
+* `rune` vs `byte` and why iterating over a string with `range` returns runes: [Strings, bytes, runes and characters in Go](https://blog.golang.org/strings)
 
