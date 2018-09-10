@@ -7,6 +7,13 @@ isPangram :: String -> Bool
 isPangram xs = all (`elem` map toLower xs) ['a'..'z']
 ```
 
+```haskell
+import Data.Char (toLower)
+
+isPangram :: String -> Bool
+isPangram xs = ['a'..'z'] \\ map toLower s
+```
+
 ### Common suggestions
 - Instead of writing out all letters in the alphabet, it's possible to take
 advantage of the `Enum Char` instance, i.e. instead of "abcdefghijk...xyz", one
