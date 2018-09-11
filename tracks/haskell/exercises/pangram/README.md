@@ -11,7 +11,7 @@ isPangram xs = all (`elem` map toLower xs) ['a'..'z']
 import Data.Char (toLower)
 
 isPangram :: String -> Bool
-isPangram xs = ['a'..'z'] \\ map toLower s
+isPangram xs = null (['a'..'z'] \\ map toLower xs)
 ```
 
 ### Common suggestions
