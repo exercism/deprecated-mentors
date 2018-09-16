@@ -70,16 +70,21 @@ The most common feedback revolves around:
 
 **Simplicity and Readability**
 
-Sometimes we have to make compromises between Speed on the one side and Simplicity / Readability on the other. In this exercise this is **not** the case. My suggestion is to make this exercise mostly about speed and the solution will become simple and readable.
+* are they using a lot of if statements instead of a switch? Suggest to use a switch for readability.
+
+Sometimes we have to make compromises between speed on the one side and simplicity / readability on the other. In this exercise this is not the case. My suggestion is to make this exercise mostly about speed and the solution will become simple and readable.
 
 **Speed and alloctions**
 * are they using `strings.ToLower`/`strings.ToUpper` before or even inside the for loop? Suggest using `unicode.ToLower`/`unicode.ToUpper` as it is faster and removes allotions.
 * are they using a `map[string]int` and maybe even a `strings.Contains`? Suggest a `map[rune]int` for direct lookup of a rune to its value. Runes are they way to go here as they are the result of a `for .. range` over a string.
 * are they defining the map inside the function? Suggest to move it outside to package level.
 * a `switch` can be suggested if they are using a `map`. It is approx. 3 times faster than the map lookups.
-* a criterium can be the memory allocations: there shouldn't be any memory allocations.
+* are they using go routines? They are probably very excited about the easy of use or think it will be super fast: It isn't. Go routines make this exercise super slow. Point to benchmarking the exercise with and without goroutines.
+
+A criterium can be the memory allocations: there shouldn't be any memory allocations.
 
 ## Talking points
 
 * How to use and read benchmarks in go.
 * `rune`s vs `byte`s. What are runes? What is the difference? `Rune`s are not necessary here (we are in ascii space) but they are faster because we need no extra type conversions.
+* If they used go routines talk about why the go routines don't make sense here. They add too much overhead to be faster than a simple switch + count.
