@@ -1,6 +1,6 @@
 # Scrabble Score
 
-This is the first more complex task. There are several ways to solve this and simple and readable code are an important criteria on this solution. Benchmarks could also be introduced as a measurement of which solution is better.
+This exercise is the first in which we commonly see students use a map or write two functions. There are several ways to solve this and simple and readable code are an important criteria on this solution. Benchmarks could also be introduced as a measure of why a solution is better than another.
 
 ## Reasonable solutions
 
@@ -11,7 +11,7 @@ _Unformatted or unlinted code is a reason not to approve._
 
 Fast solution:
 ```
-// Score impelents scrabble score
+// Score implements scrabble score
 func Score(s string) int {
 	var score int
 	for _, r := range s {
@@ -64,15 +64,19 @@ func Score(s string) int {
 
 The most common feedback revolves around:
 
-* Simplicity and readability
-* Speed and allocations
+* Working with strings and runes
+* Control flow
+* Performance
 
-**Simplicity and Readability**
+**Working with strings and runes**
+
+* are they using a `map[string]int`? Suggest a `map[rune]int` for direct lookup of a rune to its value. Runes are the result of a `for .. range` over a string. Type conversions can be avoided with a `map[rune]int`.
+* are they using `strings.ToLower`/`strings.ToUpper` inside the for loop? Point them to the `unicode` package to work with the runes directly.
+
+**Control flow**
 
 * are they using a lot of if statements instead of a switch? Suggest to use a switch.
-* are they using a `map[string]int` and maybe even a `strings.Contains`? Suggest a `map[rune]int` for direct lookup of a rune to its value. Runes are the result of a `for .. range` over a string. Type conversions can be avoided with a `map[rune]int`.
 * are they defining the `map` inside the function? Suggest to move it outside to package level so it is only created once.
-* are they using `strings.ToLower`/`strings.ToUpper` inside the for loop? Point them to the `unicode` package to work with the runes directly.
 
 **Speed and allocations**
 
