@@ -49,7 +49,7 @@ var m = map[rune]int{
 	'Q': 10, 'Z': 10,
 }
 
-// Score impelents scrabble score
+// Score implements scrabble score
 func Score(s string) int {
 	var score int
 	for _, r := range s {
