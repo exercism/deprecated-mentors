@@ -1,6 +1,6 @@
 # Raindrops
 
-This is the third core exercise in the go track to receice feedback from a mentor. It is less about learning new concepts but more about deepening the already acquired knowledge. To some the conversion of an `int` to `string` and the modulo operator `%` are new.
+This is the third core exercise in the go track to receive feedback from a mentor. It is less about learning new concepts but more about deepening the already acquired knowledge. To some the conversion of an `int` to `string` and the modulus operator `%` are new.
 
 This may be an excellent place to talk about the go tooling again -- especially if the tools were not applied (`gofmt`, `golint`, etc).
 
@@ -40,7 +40,7 @@ The most common feedback revolves around:
 
 **Map: random iteration** 
 * are they defining static values (map, slice) in the function? Suggest moving them to package level.
-* are they using a `map` to hold the cases? This gets complicated as they need to somehow make sure the order is correct. From the [specs](https://golang.org/ref/spec#For_statements): "The iteration order over maps is not specified and is not guaranteed to be the same from one iteration to the next." Suggest using 3 `if` statements instead. If they prefer a loop you could direct them towards using: `for i := 3; i < 8; i += 2`
+* are they using a `map` to hold the cases? This gets complicated as they need to somehow make sure the order is correct. From the [specs](https://golang.org/ref/spec#For_statements): "The iteration order over maps is not specified and is not guaranteed to be the same from one iteration to the next." You could direct them towards using `for i := 3; i < 8; i += 2` or a for loop that iterates the slice `[]int{3, 5, 7}`
 
 **Control flows**
 * are they using `if { return ..} else { return ..}`? Point them to `golint` which will suggest to remove the else and outdent its block.
