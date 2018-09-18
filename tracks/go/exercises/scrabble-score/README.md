@@ -76,10 +76,10 @@ The most common feedback revolves around:
 **Control flow**
 
 * are they using a lot of if statements instead of a switch? Suggest to use a switch.
+
+**Performance**
+
 * are they defining the `map` inside the function? Suggest to move it outside to package level so it is only created once.
-
-**Speed and allocations**
-
 * a `switch` can be suggested if they are using a `map`. It is approx. 3 times faster than the map lookups.
 * If they use the `strings.ToLower`/`strings.ToUpper` before the loop, you could point out that using the `unicode` functions in the loop is a bit faster.
 * are they using go routines? They are probably very excited about the easy of use or think it will be super fast: It isn't. Go routines make this exercise super slow. Point to benchmarking the exercise with and without goroutines.
