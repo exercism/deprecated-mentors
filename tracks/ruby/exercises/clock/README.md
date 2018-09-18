@@ -1,7 +1,7 @@
 # Clock
 
-Clock introduces students to the concept of **value objects** and **modular
-arithmetic**.
+Clock introduces students to the concept of **value objects** and **[modular
+arithmetic](https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/what-is-modular-arithmetic)**.
 
 **Note:** This exercise changes a lot depending on which version the person has solved.
 
