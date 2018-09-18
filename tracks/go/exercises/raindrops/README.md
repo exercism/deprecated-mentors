@@ -48,11 +48,12 @@ The most common feedback revolves around:
 
 **Strings: concatenation and conversion**
 * are they using `strconv.FormatInt`? You can point them to `strconv.Itoa` as being more convenient (no `int64` conversion needed, no second parameter).
+* are they using `fmt.Sprintf` or `fmt.Sprint`? These functions need reflection to check the type which makes it much slower. You could suggest using `strings.Itoa`.
 * are they using a slice and `strings.Join`? You could mention appending to the string with `+=` as a simpler method.
-* they are using a `strings.Builder`? You could mention appending to the string with `+=` as a simpler method or -- if they seem to be more advanced or are very hungry -- as an option that consumes ~2.5 times less memory.
+* are they using a `strings.Builder`? You could mention appending to the string with `+=` as a simpler method or -- if they seem to be more advanced or are very hungry -- as an option that consumes ~2.5 times less memory and is also slightly faster.
 
 **Inconsistent formatting: mention `gofmt`**
-* Did they not run `gofmt`? This is harder to detect right now unless it's blatantly badly formatted, but if it's clear that `gofmt` hasn't been run, it's worth gently pointing to it (https://blog.golang.org/go-fmt-your-code), and maybe mentioning that this is the accepted standard, and that all professional or open source projects that you contribute to will require you to run it.
+* Did they not run `gofmt`? By now, if you spot that they haven't run `gofmt`, it is advisable to require that they run it before approving.  Gently point it out (https://blog.golang.org/go-fmt-your-code) and maybe mention that this is the accepted standard and that all professional or open source projects you contribute to will require you to run it.
 
 **Comments: the Go community has strong opinions and great guidelines**
 * Do they not have comments at all? Suggest that they try out `golint`. Maybe something like _I'd recommend taking a moment to run `golint` on your package, and follow the trail to making the linter happy.  Linting is definitely not something that people would recommend breaking the build for, but `golint` tends to complain about things that the Go community has strong preferences about, so it can be a really useful tool for learning about making your Go look more Go-ish._
