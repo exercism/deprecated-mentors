@@ -1,5 +1,5 @@
 ### Reasonable solutions
-Suggestion 1
+#### LINQ (Readable)
 
 ```csharp
 using System.Collections.Generic;
@@ -16,7 +16,8 @@ public static class SumOfMultiples
 }
 ```
 
-Suggestion 2: By tweaking the algorithm we can get a more performant (albeit less readable)
+#### LINQ (Performant)
+By tweaking the algorithm we can get a more performant (albeit less readable)
 version as follows:
 
 ```csharp
@@ -32,7 +33,8 @@ public static class SumOfMultiples
 }
 ```
 
-Suggestion 3: An alternative that shows how you can roll your own LINQ methods to boost performance is below:
+#### Custom LINQ Method
+An alternative that shows how you can roll your own LINQ methods to boost performance is below:
 ```csharp
 using System.Collections.Generic;
 using System.Linq;
@@ -57,7 +59,8 @@ public static class SumOfMultiples
 
 ```
 
-Suggestion 4: If the student is not yet ready for / comfortable with full-on LINQ then something along the following lines would be appropriate:
+#### Non-LINQ
+If the student is not yet ready for / comfortable with full-on LINQ then something along the following lines would be appropriate:
 
 ```csharp
 using System.Linq;
@@ -85,7 +88,7 @@ public static class SumOfMultiples
 ### Common suggestions
 
 - There are dozens of equally valid LINQ constructions that can be used
-of which 3 variations are provied above.
+of which 3 variations are provided above.
 - Instead of using `List<int>` to gather the results use `HashSet<int>` for performance and clarity
 
 ### Talking points
@@ -93,8 +96,8 @@ of which 3 variations are provied above.
 - When it comes to performance, many submissions (including the first above) when run 
 against a test such as `SumOfMultiples.Sum(new[] { 1_999_999_999 }, 2_000_000_000)` take minutes
 rather than milliseconds.  This could be handled by making full use of `SelectMany`
- (Suggestion 2) or with a custom LINQ method (a variation
-of `IEnumerable.Range` which takes a step value) (Suggestion 3)
+ (_LINQ (Performant)_) or with a custom LINQ method (a variation
+of `Enumerable.Range` which takes a step value) (_Custom LINQ Method_)
 To handle large sets of multiples a more efficient algorithm may be required -
 probably not of great interest to a csharp learner but perhaps worth mentioning.
 - Submissions including the ones above are not robust in that they will fail for values
@@ -103,7 +106,7 @@ can be mentioned to show how Sum() handles overflows and there may be scope
 to position this earlier in the solution for a fast and more informative fail.  Alternatively long or perhaps
  BigInteger types can be employed to handle issues with values greater
  than int.MaxValue.
- - Not everyone likes them, but it might be useful to suggest writing the `SumOfMultiples` method (see suggeston 2) as an [expression-bodied method](https://docs.microsoft.contm/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members#methods), as it is perfect for these kinds of small methods.
+ - Not everyone likes them, but it might be useful to suggest writing the `SumOfMultiples` method (see _LINQ (Performant)_) as an [expression-bodied method](https://docs.microsoft.contm/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members#methods), as it is perfect for these kinds of small methods.
 
 
 TODO a bullet proof solution for signed ints.
