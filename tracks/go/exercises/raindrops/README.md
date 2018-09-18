@@ -1,6 +1,6 @@
 # Raindrops
 
-This is the third core exercise in the go track to receice feedback from a mentor. It is less about learning new concepts but more about deepening the already acquired knowledge. To some the conversion of an `int` to `string` and the modula operator `%` are new.
+This is the third core exercise in the go track to receice feedback from a mentor. It is less about learning new concepts but more about deepening the already acquired knowledge. To some the conversion of an `int` to `string` and the modulo operator `%` are new.
 
 This may be an excellent place to talk about the go tooling again -- especially if the tools were not applied (`gofmt`, `golint`, etc).
 
