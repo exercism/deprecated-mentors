@@ -1,4 +1,23 @@
 ### Reasonable solutions
+Suggestion 1
+
+```csharp
+using System.Collections.Generic;
+using System.Linq;
+
+public static class SumOfMultiples
+{
+    public static int Sum(IEnumerable<int> multiples, int max)
+    {
+        return Enumerable.Range(1, max - 1)
+            .Where(i => multiples.Any(m => i % m == 0))
+            .Sum();
+    }
+}
+```
+
+Suggestion 2: By tweaking the algorithm we can get a more performant (albeit less readable)
+version as follows:
 
 ```csharp
 using System.Linq;
@@ -6,14 +25,39 @@ using System.Collections.Generic;
 
 public static class SumOfMultiples
 {
-    public static int Sum(IEnumerable<int> inputs, int max)
-        => inputs.SelectMany(
-            input => Enumerable.Range(1, (max - 1) / input).Select(numTimes => numTimes * input)
+    public static int Sum(IEnumerable<int> multiples, int max)
+        => multiples.SelectMany(
+            multiple => Enumerable.Range(1, (max - 1) / multiple).Select(numTimes => numTimes * multiple)
             , (numtimes, multiple) => multiple).Distinct().Sum();
 }
 ```
 
-If the student is not yet ready for / comfortable with full-on Linq then something like the following would be appropriate:
+Suggestion 3: An alternative that shows how you can roll your own LINQ methods to boost performance is below:
+```csharp
+using System.Collections.Generic;
+using System.Linq;
+
+public static class SumOfMultiples
+{
+    public static int Sum(IEnumerable<int> multiples, int max)
+    {
+        return multiples.SelectMany(multiple => GenerateMultiples(multiple, max - 1, multiple))
+          .Distinct().Sum();
+    }
+
+    public static IEnumerable<int> GenerateMultiples(int min, int max, int step)
+    {
+        // reversed direction to avoid int overflow
+        for (int i = max / step * step; i >= min; i -= step)
+        {
+            yield return i;
+        }
+    }
+}
+
+```
+
+Suggestion 4: If the student is not yet ready for / comfortable with full-on LINQ then something along the following lines would be appropriate:
 
 ```csharp
 using System.Linq;
@@ -21,33 +65,36 @@ using System.Collections.Generic;
 
 public static class SumOfMultiples
 {
-    public static int Sum(IEnumerable<int> inputs, int max)
+    public static int Sum(IEnumerable<int> multiples, int max)
     {
-        var hs = new HashSet<int>();
-        foreach (var input in inputs)
+        var results = new HashSet<int>();
+        foreach (var multiple in multiples)
         {
-            for (int ii = (max - 1) / input * input; ii > 0 ; ii -= input)
+            // reversed direction to avoid int overflow
+            for (int i = (max - 1) / multiple * multiple; i > 0; i -= multiple)
             {
-                hs.Add(ii);
+                results.Add(i);
             }
         }
 
-        return hs.Sum();
+        return results.Sum();
     }
- }
- ```
+}
+```
 
 ### Common suggestions
 
-- There are dozens of equally valid linq constructions that can be used.
-- expression bodied members are not to everybody's taste and should be optional
+- There are dozens of equally valid LINQ constructions that can be used
+of which 3 variations are provied above.
+- Instead of using `List<int>` to gather the results use `HashSet<int>` for performance and clarity
 
 ### Talking points
 
-- Students often submit a non-performant solution.  Even if you think
-that this is allowed under the premature optimisation tenet it is
-still worth chalenging the student to produce a solution that will perform
-against a test such as `SumOfMultiples.Sum(new[] { 1_999_999_999 }, 2_000_000_000)`
+- When it comes to performance, many submissions (including the first above) when run 
+against a test such as `SumOfMultiples.Sum(new[] { 1_999_999_999 }, 2_000_000_000)` take minutes
+rather than milliseconds.  This could be handled by making full use of `SelectMany`
+ (Suggestion 2) or with a custom LINQ method (a variation
+of `IEnumerable.Range` which takes a step value) (Suggestion 3)
 To handle large sets of multiples a more efficient algorithm may be required -
 probably not of great interest to a csharp learner but perhaps worth mentioning.
 - Submissions including the ones above are not robust in that they will fail for values
@@ -56,5 +103,7 @@ can be mentioned to show how Sum() handles overflows and there may be scope
 to position this earlier in the solution for a fast and more informative fail.  Alternatively long or perhaps
  BigInteger types can be employed to handle issues with values greater
  than int.MaxValue.
+ - Not everyone likes them, but it might be useful to suggest writing the `SumOfMultiples` method (see suggeston 2) as an [expression-bodied method](https://docs.microsoft.contm/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members#methods), as it is perfect for these kinds of small methods.
+
 
 TODO a bullet proof solution for signed ints.
