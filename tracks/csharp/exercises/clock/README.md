@@ -1,5 +1,5 @@
 ### Reasonable solutions
-#### struct based
+#### Struct based
 
 ```csharp
 using System;
@@ -29,8 +29,8 @@ public struct Clock
 }
 ```
 
-#### class based
-If you implment Clock as a class you have to handle the tricky rules of equality
+#### Class based
+If you implement Clock as a class you have to handle the tricky rules of equality
 ```csharp
 public class Clock
 {
@@ -53,9 +53,9 @@ public class Clock
         return $"{Hours:D2}:{Minutes:D2}";
     }
 
-    private int AdjustClock(int minutesIn, int adjustmenttMinutes)
+    private int AdjustClock(int minutesIn, int adjustmentMinutes)
     {
-        return (24 * 60 + ( minutesIn + adjustmenttMinutes) % (24 * 60)) % (24 * 60);
+        return (24 * 60 + ( minutesIn + adjustmentMinutes) % (24 * 60)) % (24 * 60);
     }
 
     private bool Equals(Clock other)
