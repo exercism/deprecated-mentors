@@ -3,14 +3,16 @@
 _Acronym_ is one of the first side exercises, unlocked by _TwoFer_
 
 ## Reasonable Solutions
+This is the Minimal Solution for approval:
 
 ```ruby
-module Acronym
+class Acronym
   def self.abbreviate(fullname)
     fullname.scan(/\b[a-zA-Z]/).join.upcase
   end
 end
 ```
+Variations are: `module` instead of `class`, or instantiating the class.  
 
 ## Common suggestions
 * Most first submissions split the phrase into words with `String#split`: 
@@ -20,7 +22,7 @@ end
   , followed by operations to find the first letters.
   Variation: first `gsub` or `tr` the non-space delimiters, then `split`
   
-In all these cases: point to String#scan.   
+In all these cases: don't approve solutions with `split`, point to String#scan.   
 * The first use of `scan` mostly is a scan for full words. That's a perfect moment to show the power of `scan`: 
 when it returns the first letters only, it will save a few operations.  
 * As this exercise is not about Regular Expressions, it's recommended to 
