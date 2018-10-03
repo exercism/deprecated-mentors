@@ -64,8 +64,8 @@ public static class Raindrops
 
 - The non-LINQ solution presents an opportunity to mention the performance
 advantages of `StringBuilder` in a more performance sensitive context.
-- Again, for the non-LINQ solution where the student has presented a a switch
-statement or multiple conditions as above it can be worth mentioning the
+- Again, for the non-LINQ solution, where the student has presented a a switch
+statement or multiple conditions, as above it can be worth mentioning the
 virtues of a read only initialised dictionary.  This can morph into a 
 discussion of a LINQ based solution.
 
