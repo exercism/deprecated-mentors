@@ -10,19 +10,19 @@ public static class Raindrops
 {
     public static string Convert(int number)
     {
-        Dictionary<int, string> dict = new Dictionary<int, string>()
+        var sounds = new Dictionary<int, string>()
         {
             [3] = "Pling",
             [5] = "Plang",
             [7] = "Plong",
         };
 
-        var factors = dict
+        var factors = sounds
             .Where(kv => number % kv.Key == 0)
             .Select(kv => kv.Value)
             .DefaultIfEmpty(number.ToString());
 
-        return String.Join(string.Empty, factors);
+        return string.Join(string.Empty, factors);
     }
 }
 ```
@@ -35,8 +35,10 @@ public static class Raindrops
 {
     public static string Convert(int number)
         => new (string sound, int value)[] {("Pling", 3), ("Plang", 5), ("Plong", 7)}
-            .Where(p => number % p.value == 0).Select(p => p.sound)
-            .DefaultIfEmpty(number.ToString()).Aggregate((sounds, sound) => sounds + sound);
+            .Where(p => number % p.value == 0)
+            .Select(p => p.sound)
+            .DefaultIfEmpty(number.ToString())
+            .Aggregate((sounds, sound) => sounds + sound);
 }
 ```
 #### Non-LINQ
@@ -47,24 +49,22 @@ public static class Raindrops
 {
     public static string Convert(int number)
     {
-        string sound = string.Empty;
+        var sound = string.Empty;
 
         if (number % 3 == 0) sound += "Pling";
         if (number % 5 == 0) sound += "Plang";
         if (number % 7 == 0) sound += "Plong";
 
-        return String.IsNullOrEmpty(sound) ? number.ToString() : sound;
-
+        return string.IsNullOrEmpty(sound) ? number.ToString() : sound;
     }
 }
-
 ```
 
 ### Common suggestions
 
 - The non-LINQ solution presents an opportunity to mention the performance
 advantages of `StringBuilder` in a more performance sensitive context.
-- Again, for the non-LINQ solution, where the student has presented a a switch
+- Again, for the non-LINQ solution, where the student has presented a switch
 statement or multiple conditions, as above it can be worth mentioning the
 virtues of a read only initialised dictionary.  This can morph into a 
 discussion of a LINQ based solution.
