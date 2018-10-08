@@ -1,6 +1,6 @@
 # Acronym
 
-_Acronym_ is one of the first side exercises, unlocked by _TwoFer_
+_Acronym_ is promoted to a core exercise, the first after _TwoFer_. 
 
 ## Reasonable Solutions
 
@@ -11,6 +11,8 @@ module Acronym
   end
 end
 ```
+with variations for the regex (see below).
+
 
 ## Common suggestions
 * Most first submissions split the phrase into words with `String#split`: 
