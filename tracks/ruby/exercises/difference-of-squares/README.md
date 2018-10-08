@@ -29,5 +29,5 @@ end
 
 ### Talking points
 - `sum` with and without a block
-- `abs2` if they use `** 2`
+- `abs2` or `pow(2)` if they use `** 2`  (`Integer#pow` was introduced in Ruby 2.5.0) 
 - `1.upto(last)` vs `1..last` 
