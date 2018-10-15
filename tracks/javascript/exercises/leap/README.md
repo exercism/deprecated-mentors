@@ -18,7 +18,7 @@ module.exports = {
 
 - For solutions that have more than one exit point, suggest trying to use a single
 exit point while maintaining legibility. It could be done by aggregating all
-condintionals in one and creating a temp var with a legible name for each.
+conditionals in one and creating a temp var with a legible name for each.
 
 - Creating a helper function that checks if a number is divisible might also be
 a good idea. This would help with the first point and keep the logic readable.
