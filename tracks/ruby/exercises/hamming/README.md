@@ -48,7 +48,7 @@ Cons: needs to convert the string to an array
 Strategy 2: String Power
  
 ```ruby 
-    (0..strand1.length).count { |i| strand1[i] != strand2[i] }
+    (0...strand1.length).count { |i| strand1[i] != strand2[i] }
 ```
 Pros: uses string directly; no array conversion needed;   
 Cons: requires indices.
