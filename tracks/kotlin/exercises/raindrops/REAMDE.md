@@ -5,7 +5,7 @@ object Raindrops {
         if (num % 3 == 0) append("Pling")
         if (num % 5 == 0) append("Plang")
         if (num % 7 == 0) append("Plong")
-        if(isEmpty()) append(num)
+        if (isEmpty()) append(num)
     }
 }
 ```
@@ -21,7 +21,6 @@ object Raindrops {
             input.toString()
         else
             words.joinToString("")
-
     }
 }
 ```
