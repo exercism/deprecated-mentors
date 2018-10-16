@@ -9,7 +9,7 @@ class Matrix(val list: List<List<Int>>) {
                         MatrixCoordinate(rowIndex, columnIndex)
                     else null
                 }
-            }.flatten().filter { it != null }.toSet()
+            }.flatten().filterNotNull().toSet()
 
     private fun column(i: Int): List<Int> = list.map { it[i] }
     private fun largestInRow(num: Int, row: List<Int>) = row.all { num >= it }
