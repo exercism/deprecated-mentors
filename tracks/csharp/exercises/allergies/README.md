@@ -123,6 +123,24 @@ public enum Allergen
 }
 ```
 
+##### Using hex values:
+
+```csharp
+Flags]
+public enum Allergen
+{
+    None         = 0x0,
+    Eggs         = 0x1,
+    Peanuts      = 0x2,
+    Shellfish    = 0x4,
+    Strawberries = 0x8,
+    Tomatoes     = 0x10,
+    Chocolate    = 0x20,
+    Pollen       = 0x40,
+    Cats         = 0x80
+}
+```
+
 ##### Using integer values:
 
 ```csharp
