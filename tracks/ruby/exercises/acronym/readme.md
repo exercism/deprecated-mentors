@@ -1,6 +1,7 @@
 # Acronym
+TwoFer -> **Acronym** -> Hamming
 
-_Acronym_ is promoted to a core exercise, the first after _TwoFer_. 
+_Acronym_ is promoted to a core exercise, the first after _TwoFer_. It's meant to introduce `String#scan`.
 
 ## Reasonable Solutions
 
