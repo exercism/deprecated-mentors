@@ -86,8 +86,11 @@ public class Clock
 
 ### Talking points
 
-- The student may not be aware of the algorithm to handle the modulus with negative numbers.  This is not
-a C# issue but the algorithm is worth mentioning as it improves the quality of the code
+- The student may not be aware of the best way to handle the arithmetic involving negative hours and minutes,
+coded in the above examples as `Mod()` and `AdjustClock()` respectively.
+- The meaning in computing of modulo with regard to negative numbers varies from language to language per [Wikipedia](https://en.wikipedia.org/wiki/Modulo_operation).
+For C# the `%` operator, referred to as remainder, is precisely defined in the [docs](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/or-operator) as follows:
+> For the integer operands, the result of `a % b` is the value produced by a - (a / b) * b. The sign of the non-zero remainder is the same as that of the first operand
 - `private const`s are preferred to `readonly` fields as they are more idiomatic and, not that it matters
 much here, more performant
 - Converting the time to minutes simpifies processing.  Again, not a particularly C# point
