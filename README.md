@@ -1,5 +1,7 @@
 # Exercism Mentors
 
+**NOTE: This repository is deprecated. Mentor notes now live in the [exercism/website-copy](https://github.com/exercism/website-copy) repository.**
+
 ## Not a mentor?
 
 We are always looking for more mentors to help new people ramp up in the programming languages that Exercism supports. Read more about mentorship at Exercism on [mentoring.exercism.io](https://mentoring.exercism.io/).
