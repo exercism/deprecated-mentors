@@ -1,0 +1,6 @@
+[package]
+name = "leap"
+version = "0.1.0"
+authors = ["Peter Tillemans <pti@melexis.com>"]
+
+[dependencies]
