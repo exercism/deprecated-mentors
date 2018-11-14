@@ -17,7 +17,7 @@ class Clock
   end
 
   def to_s
-    "%02d:%02d" % time.divmod(MINUTES_PER_HOUR)
+    format("%02d:%02d", *time.divmod(MINUTES_PER_HOUR))
   end
 
   def +(other)
@@ -34,7 +34,7 @@ class Clock
   alias eql? ==
 
   def hash
-    [self.class, self.time].hash
+    [self.class, time].hash
   end
 
   protected
